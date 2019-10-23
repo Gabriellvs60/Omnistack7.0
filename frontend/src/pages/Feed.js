@@ -13,11 +13,11 @@ class Feed extends Component{
                     <header>
                         <div className="user-info">
                             <span>Gabriel</span>
-                            <span>Pelotas, RS</span>
+                            <span className="place">Pelotas, RS</span>
                         </div>
                         <img src={more} alt="Mais"/>
                     </header>
-                    <img src="" alt=""/>
+                    <img src="mot2.jpg" alt=""/>
                     <footer>
                         <div className="actions">
                             <img src={like} alt=""/>
@@ -34,11 +34,14 @@ class Feed extends Component{
                     <header>
                         <div className="user-info">
                             <span>Gabriel</span>
-                            <span>Pelotas, RS</span>
+                            <span className="place">Pelotas, RS</span>
                         </div>
                         <img src={more} alt="Mais"/>
                     </header>
                     <img src="" alt=""/>
+
+                    <img src="mot1.jpg" />
+
                     <footer>
                         <div className="actions">
                             <img src={like} alt=""/>
