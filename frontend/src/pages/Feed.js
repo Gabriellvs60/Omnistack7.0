@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import api from '../services/api';
+
 import './Feed.css';
 import more from '../assets/more.svg';
 import like from '../assets/like.svg';
@@ -6,53 +8,37 @@ import comment from '../assets/comment.svg';
 import send from '../assets/send.svg';
 
 class Feed extends Component{
+    state = {
+        feed: [],
+    };
+    async componentDidMount(){
+        const response = await api.get('http://localhost:3333/posts');
+        this.setState({feed : response.data});
+    }
     render(){
         return(
             <section id="post-list">
-                <article>
+             {this.state.feed.map(post => (
+                    <article>
                     <header>
                         <div className="user-info">
-                            <span>Gabriel</span>
-                            <span className="place">Pelotas, RS</span>
+                            <span>{post.author}</span>
+                            <span className="place">{post.place}</span>
                         </div>
-                        <img src={more} alt="Mais"/>
                     </header>
-                    <img src="mot2.jpg" alt=""/>
+                    <img src={`http://localhost:3333/files/${post.image}`} alt="Mais"/>
                     <footer>
                         <div className="actions">
                             <img src={like} alt=""/>
                             <img src={comment} alt=""/>
                             <img src={send} alt=""/>
                         </div>
-                        <strong>900 curtidas</strong>
-                        <p>Um post massa</p>
-                        <span>#Nice #Top</span>
+                        <strong>{post.likes}</strong>
+                        <p>{post.description}</p>
+                        <span>{post.hashtags}</span>
                     </footer>
                 </article>
-
-                <article>
-                    <header>
-                        <div className="user-info">
-                            <span>Gabriel</span>
-                            <span className="place">Pelotas, RS</span>
-                        </div>
-                        <img src={more} alt="Mais"/>
-                    </header>
-                    <img src="" alt=""/>
-
-                    <img src="mot1.jpg" />
-
-                    <footer>
-                        <div className="actions">
-                            <img src={like} alt=""/>
-                            <img src={comment} alt=""/>
-                            <img src={send} alt=""/>
-                        </div>
-                        <strong>900 curtidas</strong>
-                        <p>Um post massa</p>
-                        <span>#Nice #Top</span>
-                    </footer>
-                </article>
+             ))}
             </section>
         );
     }
