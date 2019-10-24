@@ -12,14 +12,14 @@ class Feed extends Component{
         feed: [],
     };
     async componentDidMount(){
-        const response = await api.get('http://localhost:3333/posts');
+        const response = await api.get('posts');
         this.setState({feed : response.data});
     }
     render(){
         return(
             <section id="post-list">
              {this.state.feed.map(post => (
-                    <article>
+                    <article key={post._id}>
                     <header>
                         <div className="user-info">
                             <span>{post.author}</span>
