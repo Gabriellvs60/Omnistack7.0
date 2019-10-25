@@ -17,7 +17,7 @@ export default createAppContainer(
         //isso aplica a todas as telas
         defaultNavigationOptions:{
             headerTintColor: '#000',
-            headerTitle: <Image style={{marginHorizontal: 20}}source={logo} />
+            headerTitle: <Image style={{marginHorizontal: 140}}source={logo} />
             ,headerBackTitle: null,
         },
         mode: 'modal'
