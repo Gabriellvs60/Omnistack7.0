@@ -74,4 +74,5 @@ class New extends Component{
     }
 }
 
-export default New;
+
+  export default New;

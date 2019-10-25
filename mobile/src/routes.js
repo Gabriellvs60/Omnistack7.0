@@ -14,6 +14,7 @@ export default createAppContainer(
         Feed,
         New,
     },{
+        initialRouteName: 'New',
         //isso aplica a todas as telas
         defaultNavigationOptions:{
             headerTintColor: '#000',
